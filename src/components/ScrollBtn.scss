@@ -1,0 +1,31 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.scrollBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: block;
+  background-color: var(--clr-white);
+  box-shadow: 0 0 25px rgb(23 23 23 / 25%);
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  transition: transform .2s ease-in-out, boxShadow 0.25s ease-in-out;  
+  z-index: 10000;  
+  @include rounded-full;
+  display: none;  
+  svg {
+    @include text-xl;
+  }
+  transform: scale(1);
+  @include hover {
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px 4px rgb(23 23 23 / 25%);
+    }
+  }
+  @include breakpoint(xl) { 
+   display: block;
+  }
+}

@@ -1,0 +1,108 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.subscribe {
+  background-color: var(--nav-mb-bg);
+  margin-top: 0 !important;
+  padding: clamp(2.8rem, 6vw, 7rem) 0;
+
+  & .container {
+    overflow: initial;
+    .subscribe_content {
+      margin-top: 1rem;
+      background-color: var(--clr-white);
+      @include rounded-md;
+
+      .subscribe_image {
+        height: 20rem;
+        background-image: url("../data/data18.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top center;
+        @include rounded-md;
+      }
+
+      .subscribe_details {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        @include flow-vertical(1.5em);
+        @include rounded-md;
+
+        h2 {
+          color: var(--clr-one);
+          line-height: 1.2;
+          @include text-3xl;
+        }
+        p {
+          color: var(--clr-three);
+          @include text-md;
+          line-height: 1.7;
+        }
+
+        form {
+          display: flex;
+          flex-direction: column;
+          @include flow-vertical(1.3em);
+
+          input {
+            border: none;
+            background-color: var(--nav-mb-bg);
+            padding: 0.8rem 1rem;
+            @include text-md;
+            outline: none;
+            &::placeholder {
+              color: rgba(120, 120, 120, 0.659);
+            }
+          }
+
+          button {
+            background-color: var(--clr-four);
+            color: white;
+            padding: 0.7em 1em;
+            @include text-sm;
+            cursor: pointer;
+            @include rounded-md;
+            border: 1px solid var(--clr-four);
+            transition: background 0.2s ease-out, border 0.2s ease-out,
+              color 0.2s ease-out;
+            @include flex-centering;
+            gap: 0.5em;
+
+            svg {
+              @include text-base;
+            }
+
+            &:hover {
+              background-color: transparent;
+              color: var(--clr-four);
+            }
+          }
+        }
+      }
+
+      @include breakpoint(lg) {
+        display: grid;
+        grid-auto-rows: clamp(29rem, 40vw, 36rem);
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: -11.5rem;
+        position: relative;
+        z-index: 5;
+        .subscribe_image {
+          height: 100%;
+          width: 100%;
+        }
+
+        .subscribe_details {
+          justify-content: center;
+          padding: clamp(2.5rem, 7vw, 5rem);
+          height: 100%;
+
+          h2 {
+            // max-width: 12ch;
+          }
+        }
+      }
+    }
+  }
+}

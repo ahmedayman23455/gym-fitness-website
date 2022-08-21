@@ -1,0 +1,12 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.home_page { 
+  height: 100%;
+  .flex { 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    @include flow-vertical(clamp(2.8rem, 6vw, 7rem));
+  }
+}

@@ -1,0 +1,141 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.experience {
+  // margin-top: 3rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+
+  @include breakpoint(xl) {
+    flex-direction: row;
+    grid-template-columns: 1.5fr 1fr;
+  }
+
+  .experience_images {
+    .one {
+      width: 70%;
+    }
+    .two {
+      width: 50%;
+      margin-left: auto;
+      margin-top: -42%;
+    }
+  }
+
+  .experience_content {
+    display: flex;
+  }
+  .experience_content_elements {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    @include flow-vertical;
+
+    @include breakpoint(xl) {
+      @include flow-vertical(2rem);
+    }
+
+    h4 {
+      color: var(--clr-four);
+      @include text-lg;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      color: var(--clr-one);
+      @include text-3xl;
+      text-transform: uppercase;
+      @include breakpoint(xl) {
+        @include text-4xl;
+        max-width: 20rem;
+      }
+    }
+
+    p {
+      color: var(--clr-three);  
+      line-height: 1.7;
+    }
+
+    button {
+      padding: 0.9em 2.2em;
+      @include rounded-sm;
+      @include text-md;
+      font-weight: 500;
+      text-transform: uppercase;
+      cursor: pointer;
+      align-self: flex-start;
+
+      background-color: var(--clr-one);
+      border: 1px solid var(--clr-one);
+      color: white;
+      transition: background 0.2s ease-out, border 0.2s ease-out,
+        color 0.2s ease-out;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      span {
+        padding-right: 0.5rem;
+      }
+
+      svg {
+        color: white;
+        @include text-xl;
+      }
+
+      @include hover {
+        &:hover {
+          color: var(--clr-one);
+          background: transparent;
+        }
+        &:hover svg {
+          color: var(--clr-one);
+        }
+      }
+    }
+  }
+}
+
+.achievements {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  //   @include flow-vertical(2em);
+
+  div {
+    display: flex;
+    align-items: center;
+    @include flow-horizontal;
+
+    span {
+      color: var(--clr-four);
+      @include text-xl;
+    }
+
+    p {
+      @include text-md;
+      font-weight: 500;
+    }
+  }
+
+  @include breakpoint(lg) {
+    grid-template-columns: repeat(2, 1fr);
+
+    div {
+      max-width: 30ch;
+    }
+  }
+
+  @include breakpoint(xl) {
+    grid-template-columns: repeat(4, 1fr);
+    div {
+      max-width: 30ch;
+    }
+  }
+}

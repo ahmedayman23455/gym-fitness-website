@@ -1,0 +1,166 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.fitnessClasses {
+  background-color: var(--nav-mb-bg);
+  padding: clamp(2.5rem, 7vw, 8rem) 0;
+
+  .container {
+    .fitnessClasses_title {
+      display: flex;
+      flex-direction: column;
+      @include flow-vertical(0.5rem);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+
+      h3 {
+        color: var(--clr-four);
+        @include text-md;
+      }
+      h2 {
+        color: var(--clr-one);
+
+        @include text-3xl;
+      }
+    }
+
+    .mySwiper {
+      .swiper-button-next,
+      .swiper-button-prev {
+        background-color: white;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 100%;
+        @include flex-centering;
+        // @include shadow-xl ;
+        box-shadow: 0px 0px 30px 0px rgb(40 42 54 / 18%);
+        transition: background 0.2s ease-out;
+
+        svg {
+          transition: color 0.2s ease-out;
+          @include text-2xl;
+          color: var(--clr-one);
+        }
+        @include hover {
+          &:hover {
+            background-color: var(--clr-one);
+            svg {
+              color: var(--clr-white);
+            }
+          }
+        }
+      }
+
+      .swiper-button-next:after,
+      .swiper-button-prev:after {
+        display: none;
+      }
+
+      .fitness_class {
+        background-color: var(--clr-white);
+        display: grid;
+        cursor: url("https://litho.themezaa.com/wp-content/themes/litho/assets/images/icon-move-black.png"),
+          move;
+
+        img {
+          max-width: 100%;
+          object-fit: cover;
+          object-position: 0% 35%;
+          height: 12.5rem;
+          width: 100%;
+        }
+
+        .fitness_class_content {
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          @include flow-vertical;
+          align-items: flex-start;
+          justify-content: center;
+          h4 {
+            text-transform: uppercase;
+            @include text-lg;
+            font-weight: 500;
+            color: var(--clr-one);
+          }
+          p {
+            @include text-md;
+            color: var(--clr-three);
+
+            line-height: 1.7;
+          }
+
+          button {
+            background-color: var(--clr-one);
+            color: white;
+            padding: 0.3rem 1rem;
+            text-transform: uppercase;
+            @include text-sm;
+            font-weight: 500;
+            border: 1px solid var(--clr-one);
+            transition: background 0.2s ease-out, border 0.2s ease-out,
+              color 0.2s ease-out;
+            cursor: pointer;
+            margin-top: 1.5rem;
+
+            @include hover {
+              &:hover {
+                background-color: transparent;
+                color: var(--clr-one);
+              }
+            }
+          }
+        }
+
+        @include breakpoint(md) {
+          grid-auto-flow: column;
+          grid-auto-columns: 1fr;
+          grid-auto-rows: 15.5rem;
+
+          img {
+            height: 100%;
+          }
+        }
+      }
+
+      @include breakpoint-limit(lg, xl) {
+        width: 80%;
+      }
+    }
+
+    .fitnessClasses_details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @include flow-vertical(2.5rem);
+      margin-top: 6rem;
+
+      div {
+        text-align: center;
+        text-transform: uppercase;
+
+        span {
+          display: block;
+          color: var(--clr-one);
+          @include text-4xl;
+          font-weight: bold;
+        }
+
+        p {
+          color: var(--clr-three);
+          margin-top: 0.6rem;
+          font-weight: 400;
+          @include text-md;
+        }
+      }
+
+      @include breakpoint(lg) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        @include flow-vertical(0);
+      }
+    }
+  }
+}

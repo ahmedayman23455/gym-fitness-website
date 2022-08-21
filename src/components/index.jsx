@@ -1,0 +1,12 @@
+export { default as Navigation } from "./Navigation";
+export { default as Header } from "./Header";
+export { default as Experience } from "./Experience";
+export { default as Workout } from "./Workout";
+export { default as HealthyDiet } from "./HealthyDiet";
+export { default as FitnessClasses } from "./FitnessClasses";
+export { default as PerfectBody } from "./PerfectBody";
+export { default as Subscribe } from "./Subscribe";
+export { default as SubscribeAppointements } from "./SubscribeAppointements";
+export { default as PricingPlans } from "./PricingPlans";
+export {default as Footer} from './Footer' ; 
+export {default as ScrollBtn} from './ScrollBtn' ; 

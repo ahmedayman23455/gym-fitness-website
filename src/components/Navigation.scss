@@ -1,0 +1,185 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.navigation {
+  background-color: var(--clr-white);  
+  // background-color: black;
+  color: var(--clr-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6em clamp(0.5em, 5vw, 4em);
+  position: fixed;
+  z-index: 10000000000;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-family: "Poppins", sans-serif;
+
+  .navigation_logo {
+    img {
+      width: clamp(6rem, 8vw, 9rem);
+    }
+  }
+
+  @include breakpoint(xl) {
+    background-color: transparent;
+    color: var(--clr-white);
+  }
+
+  //navigation_links_ds
+  .navigation_links_ds {
+    color: var(--clr-one);
+    display: flex;
+
+    @include flow-horizontal(1.7em);
+
+    div {
+      position: relative;
+      padding: 1.5rem 0.5rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-weight: 500;
+      @include text-base;
+
+      p {
+        @include hover {
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+
+    @include breakpoint(xl) {
+      color: var(--clr-white);
+    }
+
+    .nav_sublinks_ds {
+      position: absolute;
+      top: 100%;
+      left: -20%;
+      background: white;
+      color: var(--clr-three);
+      width: max-content;
+      min-width: 25ch;
+      @include rounded-md;
+      padding: 2em;
+      display: flex;
+      flex-direction: column;
+      @include flow-vertical;
+      font-weight: 400;
+      @include text-sm;
+      text-transform: capitalize;
+
+      li:not(:first-child) {
+        @include hover {
+          &:hover {
+            color: var(--clr-one);
+          }
+        }
+      }
+
+      li:first-child {
+        color: var(--clr-one);
+        font-weight: 500;
+      }
+    }
+  }
+
+  // navigation_links_sm
+  .navigation_links_sm {
+    color: var(--clr-one); 
+    // color:white; 
+
+    display: flex;
+    align-items: center;
+    margin-right: -5px;
+    @include flow-horizontal(1em);
+
+    svg {
+      cursor: pointer;
+      @include text-2xl;
+    }
+
+    a {
+      svg {
+        @include text-base;
+      }
+    }
+
+    .hamburger-react {
+      margin-left: 0;
+    }
+
+    @include breakpoint(xl) {
+      color: var(--clr-white);
+    }
+  }
+
+  //navigation_links_mb
+  .navigation_links_mb {
+    color: var(--clr-one);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--clr-white);
+
+    .nav_mb {
+      .nav_mb_link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 0.6em 1em;
+        @include text-md;
+        cursor: pointer;
+
+        svg {
+          font-size: 0.6rem;
+        }
+      }
+
+      li {
+        text-transform: capitalize;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        svg {
+          @include text-xs;
+          font-weight: bolder;
+        }
+      }
+
+      .nav_sublinks_mb {
+        background-color: var(--nav-mb-bg);
+        padding: 1em 1.5em;
+        @include text-md;
+
+        li:first-child {
+          padding: 0.3em 0;
+          cursor: default;
+        }
+        li:not(:first-child) {
+          color: red;
+          padding: 0.2em;
+          color: gray;
+          @include hover {
+            &:hover {
+              color: var(--clr-1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/* ------------------------------------------------------ */

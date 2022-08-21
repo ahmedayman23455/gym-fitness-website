@@ -1,0 +1,144 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.workout {
+  background-color: var(--nav-mb-bg);
+  padding: clamp(2.5rem , 7vw , 8rem) 0;
+
+  .container {
+    .workout_title {
+      display: flex;
+      flex-direction: column;
+      @include flow-vertical(0.5rem);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+
+      h3 {
+        color: var(--clr-four);
+        @include text-md;
+      }
+      h2 {
+        color: var(--clr-one);
+
+        @include text-3xl;
+      }
+    }
+
+    .workout_types {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      @include breakpoint(lg) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include breakpoint(xl) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .workout_type {
+        min-height: 31.5rem;
+        @include breakpoint(xl) {
+          min-height: 25.68rem;
+        }
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        z-index: 1;
+
+        &:nth-child(1) .workout_type_image {
+          background-image: url("../data/data08.webp");
+        }
+        &:nth-child(2) .workout_type_image {
+          background-image: url("../data/data09.webp");
+        }
+        &:nth-child(3) .workout_type_image {
+          background-image: url("../data/data10.webp");
+        }
+        &:nth-child(4) .workout_type_image {
+          background-image: url("../data/data11.jpg");
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-color: hsla(220, 16.5%, 17.8%, 0.4);
+          z-index: -1;
+          transition: background-color 0.3s ease-out;
+        }
+
+        .workout_type_image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          transition: transform 0.3s ease-in-out;
+          transform: scale(1);
+          z-index: -2;
+        }
+
+        .workout_types_content {
+          text-align: center;
+          padding: 3rem 0;
+          transform: translateY(37%);
+          margin-top: auto;
+          margin-left: auto;
+          margin-right: auto;
+          transition: transform 0.4s ease-in-out;
+
+          h3 {
+            color: var(--clr-white);
+            text-transform: uppercase;
+            font-weight: 500;
+            @include text-lg;
+          }
+
+          h4 {
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 400;
+            @include text-md;
+          }
+
+          button {
+            color: white;
+            background-color: var(--clr-four);
+            padding: 0.5em 2em;
+            text-transform: uppercase;
+            @include text-sm;
+            @include rounded-sm;
+            margin-top: 3.5em;
+            cursor: pointer;
+            border: 1px solid var(--clr-four);
+            transition: background 0.2s ease-out, border 0.2s ease-out,
+              color 0.2s ease-out;
+
+            @include hover {
+              &:hover {
+                background: transparent;
+                color: var(--clr-four);
+              }
+            }
+          }
+        }
+
+        @include hover {
+          &:hover .workout_type_image {
+            transform: scale(1.2);
+          }
+          &:hover::before {
+            background-color: hsla(220, 16.5%, 17.8%, 0.9);
+          }
+
+          &:hover .workout_types_content {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+}

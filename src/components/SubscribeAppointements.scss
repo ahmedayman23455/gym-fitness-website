@@ -1,0 +1,145 @@
+@use "../styles/mixins" as *;
+@use "../styles/abstracts" as *;
+
+.subscribe_appointements {
+  margin-top: 5rem;
+
+  .subscribe_appointements_navigation {
+    display: flex;
+    flex-direction: column;
+    @include flow-vertical(1em);
+
+    li {
+      width: 100%;
+      text-align: center;
+      text-transform: uppercase;
+      @include text-md;
+      color: var(--clr-three);
+      cursor: pointer;
+      padding: 0.7rem;
+
+      @include hover {
+        &:hover {
+          color: var(--clr-one);
+          font-weight: 500;
+        }
+      }
+    }
+
+    li.active {
+      background-color: white;
+      padding: 0.7rem;
+      @include rounded-full;
+      color: var(--clr-one);
+      font-weight: 500;
+      @include shadow-sm;
+    }
+
+    @include breakpoint(lg) {
+      flex-direction: row;
+      @include flow-vertical(0);
+      justify-content: center;
+
+      li {
+        width: auto;
+        padding: 0.7rem clamp(1.5rem, 3vw, 2.3rem);
+      }
+
+      li.active {
+        padding: 0.7rem clamp(1.5rem, 3vw, 2.3rem);
+      }
+    }
+  }
+
+  .subscribe_appointements_classes {
+    display: flex;
+    flex-direction: column;
+    @include flow-vertical;
+
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+
+    .subscribe_appointements_class {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      position: relative;
+      @include text-md;
+      @include flow-vertical(0.5em);
+      border-bottom: 1px solid #7170704f;
+
+      .subscribe_appointements_class_time {
+        color: var(--clr-three);
+      }
+      .subscribe_appointements_class_details {
+        h4 {
+          color: var(--clr-one);
+          font-weight: 500;
+          @include text-md;
+        }
+        p {
+          overflow: hidden;
+          color: var(--clr-three);
+          @include text-md;
+          line-height: 1.7;
+        }
+
+        .subscribe_appointements_class_coach_desktop,
+        .subscribe_appointements_class_coach_mobile {
+          font-weight: 300;
+          color: rgb(102, 102, 102);
+          @include text-md;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+        }
+      }
+      .subscribe_appointements_class_coach_desktop {
+        display: none;
+      }
+
+      button {
+        position: absolute;
+        right: 0.5rem;
+        top: 1rem;
+        cursor: pointer;
+        color: var(--clr-one);
+        font-weight: 500;
+      }
+
+      @include breakpoint(lg) {
+        flex-direction: row;
+        @include flow-vertical(0);
+        gap: 2rem;
+
+        .subscribe_appointements_class_time {
+          flex-grow: 1;
+          max-width: 6rem;
+        }
+
+        .subscribe_appointements_class_details {
+          flex-grow: 1;
+          h4:first-child {
+            margin-bottom: 1rem;
+          }
+          .subscribe_appointements_class_coach_mobile {
+            display: none;
+          }
+
+          p {
+            color: var(--clr-three);
+            line-height: 1.7;
+            @include text-md;
+            max-width: 40ch;
+          }
+        }
+
+        .subscribe_appointements_class_coach_desktop {
+          display: block;
+          margin-right: 4.5rem;
+          color: var(--clr-three);
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
